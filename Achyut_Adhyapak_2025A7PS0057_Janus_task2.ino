@@ -76,11 +76,11 @@ void loop()
     
     
     }
-    else if(final[i] >460 && final[i-1] > 460){
+    else if(final[i]  ==466 && final[i-1] == 466){
 
 digitalWrite(10,HIGH);
   digitalWrite(13,HIGH);
-  digitalWrite(11,HIGH);    //checking for my defined ground condition, i cant equate the values to 1023 because of my filter, which would return exactly 1023 pretty rarely
+  digitalWrite(11,HIGH);    //checking for my defined ground condition, i cant equate the values to 466 because of my filter, which would return exactly 1023 pretty rarely
     }
     else if (abs(final[i] - final[i-1]) <= 1){
       if(analogRead(A5) !=0){
@@ -102,7 +102,7 @@ digitalWrite(10,HIGH);
   i = 1;
 
   }
-  //as we are taking a loop each 100 miliseconds, we will fill up our array and consequently our memory gets used up, hence, we loop back in in the same array
+  //as we are going through a loop each 50 miliseconds, we will fill up our array and consequently our memory gets used up, hence, we loop back in in the same array
   // also, we are taking i=1 and not i=0 to avoid the logic error that will show up when it tries to find final[i-1]
   i = i+1;
   delay(50);  // data is updated every 50 seconds
