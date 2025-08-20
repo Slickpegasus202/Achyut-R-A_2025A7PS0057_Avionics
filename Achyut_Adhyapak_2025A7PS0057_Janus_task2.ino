@@ -55,8 +55,9 @@ void loop()
   
   final[i] = x;
 
-  //we do not actually need a filter here, as there is 0 measurement noise as we have a draggable bar sensor,
-  // but the filter is added assuming we have a sensor that has some measurement noise
+  //we do not actually need a filter here, as there is 0 measurement noise as we have a draggable bar sensor,with no measurement noise
+  // but the filter is added assuming we have a sensor that has some measurement noise (the filter may actually be somewhat usefull here 
+//as it is not really possible to drag the bar consistently how we need it
  
   if(i>2){
   
@@ -102,7 +103,7 @@ digitalWrite(10,HIGH);
   i = 1;
 
   }
-  //as we are going through a loop each 50 miliseconds, we will fill up our array and consequently our memory gets used up, hence, we loop back in in the same array
+  //as we are going through a loop each 50 miliseconds, we will fill up our array and we cant use a very large array due to memory limitations, hence, we loop back in in the same array
   // also, we are taking i=1 and not i=0 to avoid the logic error that will show up when it tries to find final[i-1]
   i = i+1;
   delay(50);  // data is updated every 50 seconds
