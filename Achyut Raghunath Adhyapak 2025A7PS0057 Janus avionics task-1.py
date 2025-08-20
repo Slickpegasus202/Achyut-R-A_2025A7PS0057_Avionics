@@ -30,7 +30,7 @@ for i in range(0,len(flightdata)):
    flightdata[i] = (44330*(1-pow((flightdata[i]/101325),(1/5.255))))-a #simple height calculation with adjustment to get actual height
 
    
-x = flightdata[0] #we are going to append x into the array names kalman, this is us initializing the first prediction,
+x = flightdata[0] #we afre going to append x into the array names kalman, this is us initializing the first prediction,
                   # we are just keeping it as our measure first value
 
 for c in flightdata : 
@@ -145,5 +145,6 @@ def update2(frame):
 frames = len(velocity)
 ani1 = animation.FuncAnimation(fig2, update2, frames=frames, init_func=init2, interval=1000, blit=True, repeat=False)
 plt.show()
+
 
 #Line 1 and line 3 are just references to compare with the filtered data, if needed can be commented out
